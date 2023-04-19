@@ -1,1 +1,2 @@
 # G2_Progetto_SAD
+Il giocatore (dopo essersi autenticato) avvia una nuova partita del Primo Scenario, l’applicazione gli mostra un elenco di classi da testare ed un elenco di Robot disponibili, il giocatore sceglie la classe ed il Robot contro cui confrontarsi. A questo punto il sistema crea la partita con tutte le scelte fatte, le associa un IdPartita, e la salva. Successivamente l’applicazione avvia l’ambiente di editing in cui visualizza la classe da testare e gli offre una finestra in cui può scrivere la classe di test.
