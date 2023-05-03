@@ -8,16 +8,12 @@ body {
   background-color: #1c1c28;
 }
 
-.container {
+.row {
   display: flex;
-  justify-content: center;
-  height: 100vh;
-  align-items: center;
+  justify-content: space-between;
   margin: auto;
-    }
-.column {
-  margin: auto;
-}
+  }
+    
 .v5_2090 {
   width: 392px;
   height: 440px;
@@ -193,3 +189,24 @@ body {
 .name {
   color: #fff;
 }
+
+.custom-column {
+padding: 20px;  
+}
+
+.custom-button {
+  background-color: rgba(57,57,83,1);
+  color: #fff;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.custom-button:hover {
+  background-color: #f5b041;
+  color: #6966FF;
+  cursor: pointer;
+}
+

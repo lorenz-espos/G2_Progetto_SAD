@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
+
 <head>
- 
+
     <link th:href="@{./css/main.css}" rel="stylesheet" />
     <link th:href="@{./css/main2.css}" rel="stylesheet" />
     <link th:href="@{./bootstrap-4/css/bootstrap.min.css}" rel="stylesheet" />
@@ -9,14 +10,16 @@
     <title>Home</title>
 </head>
 
-<body class=bg-custom >
-      
-      <button type="button" class="btn btn-primary">Il mio bottone</button>
+<body class=bg-custom>
 
     <div class="container">
-    <div class="column">
-        <div class="v5_2090">
-            <div class="v5_2095">
+
+        <div class="mt-5 row">
+            <div class="col-md-6 custom-column ">
+
+                <!-- Contenuto della prima colonna -->
+                <div class="v5_2090">
+                    <div class="v5_2095">
                         <span class="v5_2096">CHOOSE A CLASS TO TEST</span>
                         <span class="v5_2097">Arctic Network</span>
                         <span class="v5_2098">N Queen</span>
@@ -32,31 +35,42 @@
                         <div class="v5_2109"></div>
                         <div class="name"></div>
 
-
+                    </div>
                 </div>
+            </div>
+            <div class="col-md-6 custom-column">
+                <!-- Contenuto della seconda colonna -->
+                <div class="v5_2111">
+                    <div class="v5_2116">
+                        <span class="v5_2117">CHOOSE A ROBOT TO FIGHT</span>
+                        <span class="v5_2118">Hulk</span>
+                        <span class="v5_2119">Spiderman</span>
+                        <span class="v5_2120">Vincent</span>
+                        <span class="v5_2121">Armando</span>
+                        <span class="v5_2122">Alexander</span>
+                        <div class="v5_2124"></div>
+                        <div class="v5_2126"></div>
+                        <div class="v5_2127"></div>
+                        <div class="v5_2128"></div>
+                        <div class="v5_2129"></div>
+                        <div class="v5_2130"></div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
 
         </div>
-    </div>
-
-    <div class="column">
-        <div class="v5_2111">
-            <div class="v5_2116">
-                <span class="v5_2117">CHOOSE A ROBOT TO FIGHT</span>
-                <span class="v5_2118">Hulk</span>
-                <span class="v5_2119">Spiderman</span>
-                <span class="v5_2120">Vincent</span>
-                <span class="v5_2121">Armando</span>
-                <span class="v5_2122">Alexander</span>
-                <div class="v5_2124"></div>
-                <div class="v5_2126"></div>
-                <div class="v5_2127"></div>
-                <div class="v5_2128"></div>
-                <div class="v5_2129"></div>
-                <div class="v5_2130"></div>
-
+        <div class="mt-5 row">
+            <div class="col-md-11 text-center">
+                <div class="container">
+                
+                <button type="button" class="btn custom-button">Next page</button>
+            </div>
             </div>
         </div>
-    </div>
-</div>
 </body>
+
 </html>
