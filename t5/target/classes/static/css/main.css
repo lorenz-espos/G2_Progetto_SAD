@@ -45,7 +45,9 @@ body {
   margin: auto;
 }
 .v5_2096 {
-  width: 344px;
+  
+  width: 90%;
+  max-width: 344px;
   color: rgba(255,255,255,1);
   position: absolute;
   top: 16px;
@@ -209,4 +211,3 @@ padding: 20px;
   color: #6966FF;
   cursor: pointer;
 }
-
