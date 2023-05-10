@@ -43,6 +43,8 @@ body {
   left: 0px;
   overflow: hidden;
   margin: auto;
+  scrollbar-color: transparent;
+  
 }
 .v5_2096 {
   
@@ -211,3 +213,14 @@ padding: 20px;
   color: #6966FF;
   cursor: pointer;
 }
+
+/* Nascondi la barra di scorrimento standard */
+::-webkit-scrollbar {
+  display: none;
+}
+
+.lista-item:hover{
+  color: #f5b041;
+}
+
+

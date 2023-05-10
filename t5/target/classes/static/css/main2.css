@@ -164,3 +164,30 @@ body {
   left: 4px;
   border: 3px solid rgba(165,158,186,1);
 }
+
+.lista {
+  height: 360px;
+  margin-top: 50px;
+  font-family: Circular Std;
+  font-weight: Book;
+  font-size: 32px;
+  color: rgba(200, 199, 216, 1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  overflow: auto;
+  
+
+}
+
+.lista-item {
+  border-bottom: 4px solid rgba(165,158,186,1);
+  width: 392px;
+  padding: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.selected {
+  background-color: yellow;
+}
