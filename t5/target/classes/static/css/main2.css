@@ -45,6 +45,7 @@ body {
   font-size: 24px;
   opacity: 1;
   text-align: left;
+  user-select: none;
 }
 .v5_2118 {
   width: 344px;
@@ -176,7 +177,6 @@ body {
   flex-wrap: wrap;
   justify-content: flex-start;
   overflow: auto;
-  
 
 }
 
@@ -186,7 +186,10 @@ body {
   padding: 5px;
   margin-right: 5px;
   margin-bottom: 5px;
+  user-select: none;
 }
+
+
 
 .selected {
   background-color: yellow;

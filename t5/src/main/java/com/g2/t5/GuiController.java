@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public class GuiController {
     @GetMapping("/main")
     public String GUIController(Model model) {
+
+        
         String nome = "Arctic Network";
         String nome1 = "N Queen";
         String nome2 = "Building Bridge";
@@ -19,6 +21,8 @@ public class GuiController {
         String nome6 = "Rubik Cube";
         String nome7 = "Knapsack";
         String nome8 = "Fibonacci";
+
+        
 
         List<String> classi = new ArrayList<String>();
         classi.add(nome);

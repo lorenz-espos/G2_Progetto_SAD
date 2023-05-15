@@ -59,6 +59,7 @@ body {
   font-size: 24px;
   opacity: 1;
   text-align: left;
+  user-select: none;
 }
 .v5_2097 {
   width: 344px;
@@ -205,13 +206,25 @@ padding: 20px;
   border: none;
   padding: 10px 20px;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-family: Circular Std;
+  font-weight: Book;
+}
+
+.my-button {
+  background-color: transparent;
+  color:  rgba(165,158,186,1);
+  border-radius: 10px;
+  border: none;
+  font-size: 1.2rem;
+  font-family: Circular Std;
+  font-weight: Book;
 }
 
 .custom-button:hover {
-  background-color: #f5b041;
-  color: #6966FF;
+  background-color: #ffffff;
+  color: rgba(57,57,83,1);
   cursor: pointer;
+
 }
 
 /* Nascondi la barra di scorrimento standard */

@@ -26,20 +26,9 @@
                         <div class="lista">  
                         <!-- Creo una lista composta di elementi lista-item che stampano 
                         il valore degli elementi contenuti nella lista java "classi" -->
-                        <span th:each="element : ${classi}" class="lista-item" th:text="${element}"></span>
-
-                      <!--   <span class="v5_2098">N Queen</span>
-                        <span class="v5_2105">Building bridges</span>
-                        <span class="v5_2106">Rat Attack</span>
-                        <span class="v5_2107">Sultan problem</span>
-                        <span class="v5_2108">Sultan problem</span> </div>
-                        <div class="v5_2099"></div>
-                        <div class="v5_2101"></div>
-                        <div class="v5_2102"></div>
-                        <div class="v5_2103"></div>
-                        <div class="v5_2110"></div>
-                        <div class="v5_2109"><-->
-                        
+                        <span>
+                            <button th:each="element: ${classi}" type="button" class ="lista-item btn my-button"  th:text=${element}></button>
+                        </span>                        
                         </div>
                         <div class="name"></div>
 
@@ -54,20 +43,6 @@
                         <div class="lista">
                             <span th:each="element : ${robot}" class="lista-item" th:text="${element}"></span>
                         </div>
-
-                        <!--
-                        <span class="v5_2118">Hulk</span>
-                        <span class="v5_2119">Spiderman</span>
-                        <span class="v5_2120">Vincent</span>
-                        <span class="v5_2121">Armando</span>
-                        <span class="v5_2122">Alexander</span>
-                        <div class="v5_2124"></div>
-                        <div class="v5_2126"></div>
-                        <div class="v5_2127"></div>
-                        <div class="v5_2128"></div>
-                        <div class="v5_2129"></div>
-                        <div class="v5_2130"></div>
-                        -->
                     </div>
                 </div>
             </div>
