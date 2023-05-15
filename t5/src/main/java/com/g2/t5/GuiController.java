@@ -5,58 +5,58 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class GuiController {
     @GetMapping("/main")
     public String GUIController(Model model) {
 
-        
-        String nome = "Arctic Network";
-        String nome1 = "N Queen";
-        String nome2 = "Building Bridge";
-        String nome3 = "Sultan Problem";
-        String nome4 = "Rat Attack";
-        String nome5 = "Sudoku";
-        String nome6 = "Rubik Cube";
-        String nome7 = "Knapsack";
-        String nome8 = "Fibonacci";
+        Map<Integer, String> hashMap = new HashMap<>();
+        Map<Integer, String> hashMap2 = new HashMap<>();
+String[]nome = new String [9];
+String[]robot = new String [9];
+        nome[0] ="Arctic Network";
+        nome[1] = "N Queen";
+        nome[2] = "Building Bridge";
+        nome[3] = "Sultan Problem";
+        nome[4] = "Rat Attack";
+        nome[5] = "Sudoku";
+        nome[6] = "Rubik Cube";
+        nome[7] = "Knapsack";
+        nome[8] = "Fibonacci";
 
+        for(int i=0;i<9;i++){
+        hashMap.put(i, nome[i]);
+        }
         
 
         List<String> classi = new ArrayList<String>();
-        classi.add(nome);
-        classi.add(nome1);
-        classi.add(nome2);
-        classi.add(nome3);
-        classi.add(nome4);
-        classi.add(nome5);
-        classi.add(nome6);
-        classi.add(nome7);
-        classi.add(nome8);
+        for (int i = 0; i < 9; i++) {
+            classi.add(hashMap.get(i));
+        }
+        model.addAttribute("hashMap", hashMap);
 
-        model.addAttribute("classi", classi);
+        robot[0]= "Hulk";
+        robot[1] = "Ironman";
+        robot[2] = "Batman";
+        robot[3] = "Superman";
+        robot[4] = "ARMANDO";
+        robot[5] = "Wolverine";
+        robot[6] = "Deadpool";
+        robot[7] = "Thor";
+        robot[8] = "Captain America";
 
-        String robot1 = "Hulk";
-        String robot2 = "Spiderman";
-        String robot3 = "Khvicha";
-        String robot4 = "Victor";
-        String robot5 = "Armando";
-        String robot6 = "D10S";
-        String robot7 = "Lucianone";
+        for(int i=0;i<9;i++){
+        hashMap2.put(i, robot[i]);
+        }
 
-        List<String> robot = new ArrayList<String>();
-
-        robot.add(robot1);
-        robot.add(robot2);
-        robot.add(robot3);
-        robot.add(robot4);
-        robot.add(robot5);
-        robot.add(robot6);
-        robot.add(robot7);
-
-        model.addAttribute("robot", robot);
+        model.addAttribute("robot", hashMap2);
         return "main";
     }
-
+    @GetMapping("/report")
+    public String reportPage() {
+        return "report"; // Nome del template Thymeleaf per la pagina2.html
+    }
 }

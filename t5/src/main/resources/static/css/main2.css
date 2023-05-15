@@ -168,6 +168,7 @@ body {
 
 .lista {
   height: 360px;
+  overflow-x: hidden;
   margin-top: 50px;
   font-family: Circular Std;
   font-weight: Book;
@@ -180,9 +181,16 @@ body {
 
 }
 
+.spa {
+  height: 360px;
+  width: 344px;
+  overflow-x: hidden;
+}
+
 .lista-item {
   border-bottom: 4px solid rgba(165,158,186,1);
-  width: 392px;
+  overflow-x: hidden;
+  width: 344px;
   padding: 5px;
   margin-right: 5px;
   margin-bottom: 5px;

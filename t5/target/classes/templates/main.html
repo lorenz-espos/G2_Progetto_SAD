@@ -2,16 +2,18 @@
 <html xmlns:th="http://thymeleaf.org">
 
 <head>
-
     <link th:href="@{./css/main.css}" rel="stylesheet" />
     <link th:href="@{./css/main2.css}" rel="stylesheet" />
     <link th:href="@{./bootstrap-4/css/bootstrap.min.css}" rel="stylesheet" />
-    <script th:src="@{/js/bootstrap.min.js}"></script>
-    <title>Home</title>
+    <script th:src="@{/js/main.js}">
+    </script>
+    <title>Choose your enemy</title>
 </head>
 
 <body class=bg-custom>
-
+    <!-- inclusione jquery-->
+    <script th:src="@{/jquery/jquery-3.7.0.com.js}"  th:inline="javascript">
+    </script>
 
 
     <div class="container">
@@ -26,9 +28,11 @@
                         <div class="lista">  
                         <!-- Creo una lista composta di elementi lista-item che stampano 
                         il valore degli elementi contenuti nella lista java "classi" -->
-                        <span>
-                            <button th:each="element: ${classi}" type="button" class ="lista-item btn my-button"  th:text=${element}></button>
-                        </span>                        
+                        <span class="spa">
+                            <button th:each="element: ${hashMap}" th:id="${element.key}"  type="button" class ="lista-item  my-button"  th:text=${element.value} th:onclick="Handlebuttonclass(this.id)"></button>
+                        </span> 
+
+                      
                         </div>
                         <div class="name"></div>
 
@@ -40,8 +44,13 @@
                 <div class="v5_2111">
                     <div class="v5_2116">
                         <span class="v5_2117">CHOOSE A ROBOT TO FIGHT</span>
-                        <div class="lista">
-                            <span th:each="element : ${robot}" class="lista-item" th:text="${element}"></span>
+                            <div class="lista">  
+                                <!-- Creo una lista composta di elementi lista-item che stampano 
+                                il valore degli elementi contenuti nella lista java "classi" -->
+                                <span class="spa">
+                                    <button th:each="element: ${robot}" th:id="${element.key}"  type="button" class ="lista-item  my-button"  th:text=${element.value} th:onclick="Handlebuttonrobot(this.id)"></button>
+                                </span> 
+                      
                         </div>
                     </div>
                 </div>
@@ -55,7 +64,7 @@
             <div class="col-md-11 text-center">
                 <div class="container">
                 
-                <button type="button" class="btn custom-button">Next page</button>
+                <button type="button" class="btn custom-button" th:onclick="redirectToPagereport()">Next page</button>
             </div>
             </div>
         </div>
