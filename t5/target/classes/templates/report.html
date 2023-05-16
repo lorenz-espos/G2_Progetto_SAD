@@ -22,31 +22,30 @@
       
         <div class="mt-5 row">
             <!-- Contenuto riga 1-->
-            <div class="col-md-7 text-center custom-column ">
+            <div class="col-md-7 text-center ">
                 <div class="box_r">
                     <div class="mt-5 row">
                     <span class="v5_2096" >HERE IS YOUR SELECTION</span>
                 </div>
                     <div class="mt-5 row">
-                        <span class="lab_r1"> CLASS TO TEST</span>
+                        <span class="lab_r1"> CLASS TO TEST<p class="custom-p" th:text=${classe} ></p></span>
                       
                     </div>
                     <div class="mt-5 row">
-                    <span class="lab_r"> ROBOT TO FIGHT</span>
+                    <span class="lab_r"> ROBOT TO FIGHT <p th:text=${robot}></p></span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="mt-5 row">
+        <div class="mt-0 row ">
              <!-- Contenuto riga 2-->
-             <div class="col-md-7 text-center custom-column ">
 
-                <button type="button" class="btn custom-button" th:onclick="redirectToPagemain()">Previous page</button>
-                <span style="padding-left: 20%;">
+             <div class="col-md-3 text-center  ">
+                <button type="button" class="btn custom-button" th:onclick="redirectToPagemain()">Go back</button>
+            </div>
 
-                </span>
-                <button type="button" class="btn custom-button" th:onclick="">Confirm</button>
-
+            <div class="col-md-3 text-center  ">
+                <button type="button" class="btn custom-button" th:onclick="">Submit</button>
             </div>
     </div>
 </body>

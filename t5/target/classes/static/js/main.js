@@ -1,5 +1,8 @@
 var classe=null;
 var robot=null;
+
+
+
 // Variabile per tenere traccia del bottone precedentemente selezionato
 var bottonePrecedente1 = null;
 // Variabile per tenere traccia del bottone precedentemente selezionato
@@ -50,6 +53,24 @@ function redirectToPagereport() {
     console.log(robot);
     if(classe  && robot ){
         window.location.href = "/report";
+
+        $.ajax({
+            url: '/sendVariable', // L'URL del tuo endpoint sul server
+            type: 'POST', // Metodo HTTP da utilizzare
+            data: { myVariable: classe,
+                myVariable2: robot 
+             }, // Dati da inviare al server
+            success: function(response) {
+              console.log('Dati inviati con successo');
+              alert("Dati inviati con successo");
+              // Gestisci la risposta del server qui
+            },
+            error: function(error) {
+              console.error('Errore nell invio dei dati');
+              alert("Dati non inviati con successo");
+              // Gestisci l'errore qui
+            }
+          });
     }
     else{
         alert("Seleziona una classe e un robot");

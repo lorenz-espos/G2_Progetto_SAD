@@ -8,11 +8,14 @@ body {
   background-color: #1c1c28;
 }
 .container {
-  max-width: fit-content;
+  max-width:100vh;
+  height: 100vh;
+ 
  position: center;
   overflow: hidden;
   justify-content: center; /* Centra orizzontalmente */
   align-items: center; /* Centra verticalmente */
+  display: grid;
 }
 
 .row {
@@ -263,15 +266,41 @@ position: center;
 
 
 .box_r {
-  width: 690px;
-  height: 440px;
+  width: 730px;
+  height: 480px;
   border-radius: 10px;
   background-color: rgba(57,57,83,1);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding: 24px 24px;
-  margin: 16px;
+  padding-top: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 0px;
+  margin: 1px;
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  margin: auto;
+  scrollbar-color: transparent;
+  
+}
+
+.box_l {
+  width: 200px;
+  height: 300px;
+  border-radius: 10px;
+  background-color: rgba(57,57,83,1);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding-top: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 0px;
+  margin: 1px;
   opacity: 1;
   position: relative;
   top: 0px;
@@ -285,7 +314,7 @@ position: center;
 .lab_r1 {
   
   width: 90%;
-  max-width: 344px;
+  max-width: none;
   color: rgba(255,255,255,1);
   position: relative;
   top: 16px;
@@ -296,6 +325,7 @@ position: center;
   opacity: 1;
   text-align: left;
   user-select: none;
+  display: inline-block;
   border-bottom: 4px solid rgba(165,158,186,1);
 
 }
@@ -315,3 +345,8 @@ position: center;
   user-select: none;
 
 }
+
+.custom-p{
+  padding-bottom: 5% ;
+}
+

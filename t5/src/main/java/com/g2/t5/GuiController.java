@@ -3,21 +3,30 @@ package com.g2.t5;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import java.util.List;
-import java.util.ArrayList;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import java.util.HashMap;
 import java.util.Map;
 
 @Controller
 public class GuiController {
+    private Integer myClass = null;
+    private Integer myRobot = null;
+    private Map<Integer, String> hashMap = new HashMap<>();
+    private Map<Integer, String> hashMap2 = new HashMap<>();
+
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login"; // Nome del template Thymeleaf per la pagina1.html
+    }
+
     @GetMapping("/main")
     public String GUIController(Model model) {
 
-        Map<Integer, String> hashMap = new HashMap<>();
-        Map<Integer, String> hashMap2 = new HashMap<>();
-String[]nome = new String [9];
-String[]robot = new String [9];
-        nome[0] ="Arctic Network";
+        String[] nome = new String[9];
+        String[] robot = new String[9];
+        nome[0] = "Arctic Network";
         nome[1] = "N Queen";
         nome[2] = "Building Bridge";
         nome[3] = "Sultan Problem";
@@ -27,18 +36,12 @@ String[]robot = new String [9];
         nome[7] = "Knapsack";
         nome[8] = "Fibonacci";
 
-        for(int i=0;i<9;i++){
-        hashMap.put(i, nome[i]);
-        }
-        
-
-        List<String> classi = new ArrayList<String>();
         for (int i = 0; i < 9; i++) {
-            classi.add(hashMap.get(i));
+            hashMap.put(i, nome[i]);
         }
         model.addAttribute("hashMap", hashMap);
 
-        robot[0]= "Hulk";
+        robot[0] = "Hulk";
         robot[1] = "Ironman";
         robot[2] = "Batman";
         robot[3] = "Superman";
@@ -48,15 +51,37 @@ String[]robot = new String [9];
         robot[7] = "Thor";
         robot[8] = "Captain America";
 
-        for(int i=0;i<9;i++){
-        hashMap2.put(i, robot[i]);
+        for (int i = 0; i < 9; i++) {
+            hashMap2.put(i, robot[i]);
         }
 
-        model.addAttribute("robot", hashMap2);
+        model.addAttribute("hashMap2", hashMap2);
         return "main";
     }
+
+    @PostMapping("/sendVariable")
+    public ResponseEntity<String> receiveVariableClasse(@RequestParam("myVariable") Integer myClassa,
+            @RequestParam("myVariable2") Integer myRobota) {
+        // Fai qualcosa con la variabile ricevuta
+        System.out.println("Variabile ricevuta: " + myClassa);
+        System.out.println("Variabile ricevuta: " + myRobota);
+        myClass = myClassa;
+        myRobot = myRobota;
+        // Restituisci una risposta al client (se necessario)
+        return ResponseEntity.ok("Dati ricevuti con successo");
+    }
+
     @GetMapping("/report")
-    public String reportPage() {
+    public String reportPage(Model model) {
+        String valueclass = "NULL";
+        String valuerobot = "NULL";
+         valueclass= hashMap.get(myClass);
+         valuerobot= hashMap2.get(myRobot);
+        System.out.println("IL VALORE DEL ROBOT " + valuerobot+" "+myRobot);
+        System.out.println("Il VALORE DELLA CLASSE " + valueclass+" "+myClass);
+        model.addAttribute("classe", valueclass);
+        model.addAttribute("robot", valuerobot);
         return "report"; // Nome del template Thymeleaf per la pagina2.html
     }
+
 }
