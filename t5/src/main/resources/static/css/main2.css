@@ -202,3 +202,11 @@ body {
 .selected {
   background-color: yellow;
 }
+
+
+.highlighted {
+  /* Modifiche quando il bottone viene selezionato */
+  background-color: transparent;
+  color: #f5b041;
+  font-weight: bold;
+}

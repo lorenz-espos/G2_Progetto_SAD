@@ -29,7 +29,7 @@
                         <!-- Creo una lista composta di elementi lista-item che stampano 
                         il valore degli elementi contenuti nella lista java "classi" -->
                         <span class="spa">
-                            <button th:each="element: ${hashMap}" th:id="${element.key}"  type="button" class ="lista-item  my-button"  th:text=${element.value} th:onclick="Handlebuttonclass(this.id,this)"></button>
+                            <button th:each="element: ${hashMap}" th:id="${element.key}"  type="button" class ="lista-item my-button"  th:text=${element.value} th:onclick="Handlebuttonclass(this.id,this)"></button>
                         </span> 
 
                       
@@ -48,7 +48,7 @@
                                 <!-- Creo una lista composta di elementi lista-item che stampano 
                                 il valore degli elementi contenuti nella lista java "classi" -->
                                 <span class="spa">
-                                    <button th:each="element: ${robot}" th:id="${element.key}"  type="button" class ="lista-item  my-button"  th:text=${element.value} th:onclick="Handlebuttonrobot(this.id,this)"></button>
+                                    <button th:each="element: ${robot}" th:id="${element.key}"  type="button" class ="lista-item my-button"  th:text=${element.value} th:onclick="Handlebuttonrobot(this.id,this)"></button>
                                 </span> 
                       
                         </div>

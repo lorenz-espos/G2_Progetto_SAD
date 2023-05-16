@@ -210,7 +210,6 @@ position: center;
 
 
 
-
 .my-button {
   display: inline-block;
   width: max-content;
@@ -231,19 +230,12 @@ position: center;
   border-radius: 0.25rem;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-/*
-.highlighted {
-  /* Modifiche quando il bottone viene selezionato *//*
-  background-color: transparent;
-  color: #f5b041;
-  font-weight: bold;
-}
-*/
+
 
 
 .custom-button {
   background-color: rgba(57,57,83,1);
-  color: #1c1c28;
+  color: #fff;
   border-radius: 10px;
   border: none;
   font-size: 10px;
