@@ -7,6 +7,13 @@ body {
 .bg-custom {
   background-color: #1c1c28;
 }
+.container {
+  max-width: fit-content;
+  margin: auto;
+ align-items: center; 
+ position: center;
+  overflow: hidden;
+}
 
 .row {
   display: flex;
@@ -196,19 +203,12 @@ body {
 }
 
 .custom-column {
-padding: 20px;  
-}
+padding: 20px;
+max-width: 400px;
+position: center;
+};  
 
-.custom-button {
-  background-color: rgba(57,57,83,1);
-  color: #fff;
-  border-radius: 10px;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  font-family: Circular Std;
-  font-weight: Book;
-}
+
 
 
 .my-button {
@@ -231,6 +231,26 @@ padding: 20px;
   border-radius: 0.25rem;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+/*
+.highlighted {
+  /* Modifiche quando il bottone viene selezionato *//*
+  background-color: transparent;
+  color: #f5b041;
+  font-weight: bold;
+}
+*/
+
+
+.custom-button {
+  background-color: rgba(57,57,83,1);
+  color: #1c1c28;
+  border-radius: 10px;
+  border: none;
+  font-size: 10px;
+  font-family: Circular Std;
+  font-weight: Book;
+  padding: 10px 20px;
+}
 
 .custom-button:hover {
   background-color: #ffffff;
@@ -238,6 +258,9 @@ padding: 20px;
   cursor: pointer;
 
 }
+
+
+
 
 /* Nascondi la barra di scorrimento standard */
 ::-webkit-scrollbar {

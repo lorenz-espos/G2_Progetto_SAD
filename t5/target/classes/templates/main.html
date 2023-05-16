@@ -19,7 +19,7 @@
     <div class="container">
 
         <div class="mt-5 row">
-            <div class="col-md-6 custom-column ">
+            <div class="col-md-5 custom-column ">
 
                 <!-- Contenuto della prima colonna -->
                 <div class="v5_2090">
@@ -29,7 +29,7 @@
                         <!-- Creo una lista composta di elementi lista-item che stampano 
                         il valore degli elementi contenuti nella lista java "classi" -->
                         <span class="spa">
-                            <button th:each="element: ${hashMap}" th:id="${element.key}"  type="button" class ="lista-item  my-button"  th:text=${element.value} th:onclick="Handlebuttonclass(this.id)"></button>
+                            <button th:each="element: ${hashMap}" th:id="${element.key}"  type="button" class ="lista-item  my-button"  th:text=${element.value} th:onclick="Handlebuttonclass(this.id,this)"></button>
                         </span> 
 
                       
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 custom-column">
+            <div class="col-md-5 custom-column">
                 <!-- Contenuto della seconda colonna -->
                 <div class="v5_2111">
                     <div class="v5_2116">
@@ -48,7 +48,7 @@
                                 <!-- Creo una lista composta di elementi lista-item che stampano 
                                 il valore degli elementi contenuti nella lista java "classi" -->
                                 <span class="spa">
-                                    <button th:each="element: ${robot}" th:id="${element.key}"  type="button" class ="lista-item  my-button"  th:text=${element.value} th:onclick="Handlebuttonrobot(this.id)"></button>
+                                    <button th:each="element: ${robot}" th:id="${element.key}"  type="button" class ="lista-item  my-button"  th:text=${element.value} th:onclick="Handlebuttonrobot(this.id,this)"></button>
                                 </span> 
                       
                         </div>
@@ -61,11 +61,11 @@
 
         </div>
         <div class="mt-5 row">
-            <div class="col-md-11 text-center">
-                <div class="container">
+            <div class="col-md-11 text-center ">
+            
                 
                 <button type="button" class="btn custom-button" th:onclick="redirectToPagereport()">Next page</button>
-            </div>
+          
             </div>
         </div>
 
