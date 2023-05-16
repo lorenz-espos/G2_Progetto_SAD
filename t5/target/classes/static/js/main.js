@@ -58,4 +58,8 @@ function redirectToPagereport() {
  
 }
 
+function redirectToPagemain() {
+        window.location.href = "/main";
+}
+
 

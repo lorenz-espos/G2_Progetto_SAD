@@ -9,10 +9,10 @@ body {
 }
 .container {
   max-width: fit-content;
-  margin: auto;
- align-items: center; 
  position: center;
   overflow: hidden;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center; /* Centra verticalmente */
 }
 
 .row {
@@ -262,3 +262,56 @@ position: center;
 }
 
 
+.box_r {
+  width: 690px;
+  height: 440px;
+  border-radius: 10px;
+  background-color: rgba(57,57,83,1);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 24px 24px;
+  margin: 16px;
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  margin: auto;
+  scrollbar-color: transparent;
+  
+}
+
+.lab_r1 {
+  
+  width: 90%;
+  max-width: 344px;
+  color: rgba(255,255,255,1);
+  position: relative;
+  top: 16px;
+  left: 24px;
+  font-family: Circular Std;
+  font-weight: Medium;
+  font-size: 24px;
+  opacity: 1;
+  text-align: left;
+  user-select: none;
+  border-bottom: 4px solid rgba(165,158,186,1);
+
+}
+.lab_r {
+  
+  width: 90%;
+  max-width: 344px;
+  color: rgba(255,255,255,1);
+  position: relative;
+  top: 16px;
+  left: 24px;
+  font-family: Circular Std;
+  font-weight: Medium;
+  font-size: 24px;
+  opacity: 1;
+  text-align: left;
+  user-select: none;
+
+}

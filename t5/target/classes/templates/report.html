@@ -1,6 +1,53 @@
-<html>
-<title>Report</title>
-<h1>REPORT</h1>
-<h2>FORZA NAPOLI SEMPRE</h2>
-<h3>Click <a href="http://localhost:8080/main">here</a> to go back to the main page</h3>
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <link th:href="@{./css/main.css}" rel="stylesheet" />
+    <link th:href="@{./css/main2.css}" rel="stylesheet" />
+    <link th:href="@{./bootstrap-4/css/bootstrap.min.css}" rel="stylesheet" />
+    <script th:src="@{/js/main.js}">
+    </script>
+    <title>Choose your enemy</title>
+</head>
+
+<body class=bg-custom>
+    <!-- inclusione jquery-->
+    <script th:src="@{/jquery/jquery-3.7.0.com.js}"  th:inline="javascript">
+    </script>
+
+
+    <div class="container">
+      
+
+      
+        <div class="mt-5 row">
+            <!-- Contenuto riga 1-->
+            <div class="col-md-7 text-center custom-column ">
+                <div class="box_r">
+                    <div class="mt-5 row">
+                    <span class="v5_2096" >HERE IS YOUR SELECTION</span>
+                </div>
+                    <div class="mt-5 row">
+                        <span class="lab_r1"> CLASS TO TEST</span>
+                      
+                    </div>
+                    <div class="mt-5 row">
+                    <span class="lab_r"> ROBOT TO FIGHT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 row">
+             <!-- Contenuto riga 2-->
+             <div class="col-md-7 text-center custom-column ">
+
+                <button type="button" class="btn custom-button" th:onclick="redirectToPagemain()">Previous page</button>
+                <span style="padding-left: 20%;">
+
+                </span>
+                <button type="button" class="btn custom-button" th:onclick="">Confirm</button>
+
+            </div>
+    </div>
+</body>
 </html>
