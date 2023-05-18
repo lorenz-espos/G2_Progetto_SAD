@@ -326,6 +326,7 @@ position: center;
   text-align: left;
   user-select: none;
   display: inline-block;
+  padding-bottom: 10% ;
   border-bottom: 4px solid rgba(165,158,186,1);
 
 }
@@ -340,13 +341,114 @@ position: center;
   font-family: Circular Std;
   font-weight: Medium;
   font-size: 24px;
+  padding-top: 4% ;
   opacity: 1;
   text-align: left;
   user-select: none;
 
 }
 
-.custom-p{
-  padding-bottom: 5% ;
+
+.login_cont {
+  width: 650px;
+  height: 380px;
+  border-radius: 10px;
+  background-color: #1c1c28;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding-top: 35px;
+  padding-left: 80px;
+  padding-right: 24px;
+  padding-bottom: 0px;
+  margin: 1px;
+  opacity: 1;
+  position: relative;
+  top: -20px;
+  left: 0px;
+  overflow: hidden;
+  margin: auto;
+  scrollbar-color: transparent;
+  
 }
 
+.form-row {
+  display: flex;
+  position:relative;
+  align-items: center;
+  margin-top: -20px;
+}
+
+.form-row label {
+  margin-right: 200px;
+  font-weight: bold;
+}
+
+.form-row input {
+  padding: 10px;
+  border: 1px solid rgba(57,57,83,1);
+  border-radius: 10px;
+}
+
+input[type="text"] {
+  background-color: rgba(57,57,83,1);
+  color : black /* Il colore di sfondo desiderato per l'input */
+}
+
+input[type="text"]::placeholder {
+  color: grey; /* Il colore desiderato per il testo di esempio nell'input */
+}
+
+input[type="text"]:focus {
+  background-color: rgba(57,57,83,1); /* Colore di sfondo desiderato quando l'input è selezionato */
+  outline: 1px rgba(57,57,83,1);
+}
+
+input[type="text"]:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px rgba(57,57,83,1) inset !important; /* Colore di sfondo quando auto-compilato */
+  -webkit-text-fill-color: white !important;
+  border-radius: 10px; /* Colore del testo quando auto-compilato */
+}
+
+.under_label{
+  display: flex; /* Imposta il layout flessibile sul div */
+  flex-direction: column; /* Allinea gli elementi verticalmente */
+  align-items: flex-start;
+  margin-bottom: 10 px;
+}
+.under_label input[type="text"] {
+  width: 500px; /* Imposta l'altezza desiderata per la casella di input */
+  padding-left: 23px;
+}
+
+.under_label label{
+  font-family:Arial, Helvetica, sans-serif
+}
+
+.user_pass{
+  padding-top: 40px;
+}
+.button_dist{
+  padding-top: 100px;
+  text-align: center;
+  padding-right: 62px;
+}
+
+.login-button {
+  background-color: rgba(57,57,83,1);
+  color: #fff;
+  border: rgba(57,57,83,1);
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-button:focus {
+  outline:none; /* Rimuove il colore di sfondo dei bordi quando il tasto è attivo (focus) */
+}
+.login-button:hover {
+  background-color: white; /* Cambia il colore di sfondo al passaggio del cursore */
+  color: black;
+}
