@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-T5Application<t5>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.g2.t5.T5Application",
+            "projectName": "t5",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
