@@ -4,8 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +17,11 @@ public class GuiController {
     private Integer myRobot = null;
     private Map<Integer, String> hashMap = new HashMap<>();
     private Map<Integer, String> hashMap2 = new HashMap<>();
+    private final FileController fileController;
+
+    public GuiController(FileController fileController) {
+        this.fileController = fileController;
+    }
 
     @GetMapping("/login")
     public String loginPage() {
@@ -23,6 +30,8 @@ public class GuiController {
 
     @GetMapping("/main")
     public String GUIController(Model model) {
+
+        fileController.listFilesInFolder("classpath:FolderTree/AUTName/AUTSourceCode");
 
         String[] nome = new String[9];
         String[] robot = new String[9];
@@ -75,10 +84,10 @@ public class GuiController {
     public String reportPage(Model model) {
         String valueclass = "NULL";
         String valuerobot = "NULL";
-         valueclass= hashMap.get(myClass);
-         valuerobot= hashMap2.get(myRobot);
-        System.out.println("IL VALORE DEL ROBOT " + valuerobot+" "+myRobot);
-        System.out.println("Il VALORE DELLA CLASSE " + valueclass+" "+myClass);
+        valueclass = hashMap.get(myClass);
+        valuerobot = hashMap2.get(myRobot);
+        System.out.println("IL VALORE DEL ROBOT " + valuerobot + " " + myRobot);
+        System.out.println("Il VALORE DELLA CLASSE " + valueclass + " " + myClass);
         model.addAttribute("classe", valueclass);
         model.addAttribute("robot", valuerobot);
         return "report"; // Nome del template Thymeleaf per la pagina2.html
