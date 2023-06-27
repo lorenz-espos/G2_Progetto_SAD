@@ -6,10 +6,12 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 @Controller
 public class FileController {
-
+    private ArrayList<String> Class = new ArrayList<>();
+    
     public void listFilesInFolder(String folderPath) {
         try {
             ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
@@ -18,6 +20,7 @@ public class FileController {
             for (Resource resource : resources) {
                 if (resource.isFile()) {
                     String fileName = resource.getFilename();
+                    Class.add(fileName);
                     System.out.println(fileName);
                 }
             }
@@ -25,5 +28,10 @@ public class FileController {
             e.printStackTrace();
         }
     }
+
+    public int getClassSize() { return Class.size(); }
+
+    public String getClass(int i) { return Class.get(i); }
+
 }
 

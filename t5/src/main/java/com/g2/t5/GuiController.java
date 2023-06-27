@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,9 +32,14 @@ public class GuiController {
     public String GUIController(Model model) {
 
         fileController.listFilesInFolder("classpath:FolderTree/AUTName/AUTSourceCode");
+        int size = fileController.getClassSize();
 
-        String[] nome = new String[9];
-        String[] robot = new String[9];
+        for (int i = 0; i < size; i++) {
+            String valore = fileController.getClass(i);
+            hashMap.put(i, valore);
+        }
+        
+        /*String[] nome = new String[9];
         nome[0] = "Arctic Network";
         nome[1] = "N Queen";
         nome[2] = "Building Bridge";
@@ -46,8 +52,11 @@ public class GuiController {
 
         for (int i = 0; i < 9; i++) {
             hashMap.put(i, nome[i]);
-        }
+        }*/
+
         model.addAttribute("hashMap", hashMap);
+
+        String[] robot = new String[9];
 
         robot[0] = "Hulk";
         robot[1] = "Ironman";
