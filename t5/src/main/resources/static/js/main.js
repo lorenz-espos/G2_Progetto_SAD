@@ -56,7 +56,6 @@ function redirectToPagereport() {
   console.log(classe);
   console.log(robot);
   if (classe && robot) {
-    window.location.href = "/report";
 
     $.ajax({
       url: '/sendVariable', // L'URL del tuo endpoint sul server
@@ -69,6 +68,7 @@ function redirectToPagereport() {
         console.log('Dati inviati con successo');
         alert("Dati inviati con successo");
         // Gestisci la risposta del server qui
+        window.location.href = "/report";
       },
       error: function (error) {
         console.error('Errore nell invio dei dati');
@@ -100,5 +100,9 @@ if(user && password ){
 else{
   alert("Inserisci username e password");
 }
+}
+
+function redirectToPageeditor() {
+  window.location.href = "/editor";
 }
 

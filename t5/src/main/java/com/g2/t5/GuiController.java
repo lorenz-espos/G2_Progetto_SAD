@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -98,7 +97,12 @@ public class GuiController {
         System.out.println("Il VALORE DELLA CLASSE " + valueclass + " " + myClass);
         model.addAttribute("classe", valueclass);
         model.addAttribute("robot", valuerobot);
-        return "report"; // Nome del template Thymeleaf per la pagina2.html
+        return "report"; 
+    }
+
+      @GetMapping("/editor")
+    public String editorPage() {
+        return "editor"; 
     }
 
 }

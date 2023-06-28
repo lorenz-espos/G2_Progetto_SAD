@@ -12,22 +12,34 @@ import java.util.ArrayList;
 public class FileController {
     private ArrayList<String> Class = new ArrayList<>();
     
-    public void listFilesInFolder(String folderPath) {
-        try {
-            ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-            Resource[] resources = resolver.getResources(folderPath + "/*");
+public void listFilesInFolder(String folderPath) {
+    try {
+        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        Resource[] resources = resolver.getResources(folderPath + "/*");
 
-            for (Resource resource : resources) {
-                if (resource.isFile()) {
-                    String fileName = resource.getFilename();
-                    Class.add(fileName);
-                    System.out.println(fileName);
+        for (Resource resource : resources) {
+            if (resource.isFile()) {
+                //gestisco il nome del file eliminando l'estensione
+                String fileName = resource.getFilename();
+                int extensionIndex = fileName.lastIndexOf('.');
+                if (extensionIndex > 0) {
+                    String fileNameWithoutExtension = fileName.substring(0, extensionIndex);
+                    //verifico che la classe non sia già stata inserita
+                    if (!Class.contains(fileNameWithoutExtension)) {
+                        Class.add(fileNameWithoutExtension);
+                        System.out.println(fileNameWithoutExtension);
+                    }
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+}
+
+
+     
 
     public int getClassSize() { return Class.size(); }
 
