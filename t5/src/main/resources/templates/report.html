@@ -16,37 +16,33 @@
     </script>
 
 
-    <div class="container">
-      
-
-      
-        <div class="mt-5 row">
-            <!-- Contenuto riga 1-->
-            <div class="col-md-7 text-center ">
-                <div class="box_r">
-                    <div class="mt-5 row">
-                    <span class="v5_2096" >HERE IS YOUR SELECTION</span>
-                </div>
-                    <div class="mt-5 row">
-                        <span class="lab_r1"> CLASS TO TEST<p class="custom-p" th:text=${classe} ></p></span>
-                      
-                    </div>
-                    <div class="mt-5 row">
-                    <span class="lab_r"> ROBOT TO FIGHT <p th:text=${robot}></p></span>
-                    </div>
-                </div>
-            </div>
+<div class="container">
+    <div class="report_cont">
+      <!-- Contenuto riga 1 -->
+      <div class="titolo">
+        <span class="v5_2096_report">HERE IS YOUR SELECTION</span>
+        <div class="image-report">
+            <img src="/images/George_line.png" alt="Linea colorata curva" style="width: 377px; height: 32px;">
+          </div>
+        <div class="class_test">
+          <span class="lab_r1"> CLASS TO TEST<p class="custom-p1" style="display: inline-block;" th:text=${classe}></p></span>
+          <!-- <div class="divisore">
+              <span class="div_blanco"></span>
+              style="width: 377px; height: 32px;"
+          </div> -->
         </div>
-        <div class="mt-0 row ">
-             <!-- Contenuto riga 2-->
-
-             <div class="col-md-3 text-center  ">
-                <button type="button" class="btn custom-button" th:onclick="redirectToPagemain()">Go back</button>
-            </div>
-
-            <div class="col-md-3 text-center  ">
-                <button type="button" class="btn custom-button" th:onclick="redirectToPageeditor()">Submit</button>
-            </div>
-    </div>
+      </div>
+      <div class="robot_test">
+        <span class="lab_r"> ROBOT TO FIGHT <p class="custom-p2" style="display: inline-block;" th:text=${robot}></p></span>
+      </div>
+    </div><!-- Fine Contenuto riga 1 -->
+  
+    <div class="div_buttons">
+        <div class="div_back">
+          <button type="button" class="btn custom-button" th:onclick="redirectToPagemain()">Go back</button>
+          <button type="button" class="btn custom-button" th:onclick="redirectToPageeditor()">Submit</button>
+      </div>
+  </div>
+  
 </body>
 </html>

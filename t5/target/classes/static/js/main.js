@@ -91,10 +91,23 @@ function redirectToPagemain() {
 
 
 function redirectToPagemainlogin() {
+
   user = document.getElementById("username").value;
   password = document.getElementById("password").value;
 if(user && password ){
   alert("Login effettuato con successo");
+  
+  $.ajax({
+    url:'/login-variabiles',
+    type: 'POST',
+    data: { 
+      var1: user, 
+      var2: password
+    },
+
+  })
+
+
   window.location.href = "/main";
 }
 else{

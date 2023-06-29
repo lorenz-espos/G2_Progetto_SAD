@@ -64,7 +64,22 @@ body {
   position: absolute;
   top: 16px;
   left: 24px;
-  font-family: Circular Std;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: Medium;
+  font-size: 24px;
+  opacity: 1;
+  text-align: left;
+  user-select: none;
+}
+.v5_2096_report {
+  
+  width: 90%;
+  max-width: 344px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 16px;
+  left: 168px;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: Medium;
   font-size: 24px;
   opacity: 1;
@@ -317,17 +332,17 @@ position: center;
   max-width: none;
   color: rgba(255,255,255,1);
   position: relative;
-  top: 16px;
-  left: 24px;
-  font-family: Circular Std;
+  top: 60px;
+  left: 40px;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: Medium;
   font-size: 24px;
   opacity: 1;
   text-align: left;
   user-select: none;
   display: inline-block;
-  padding-bottom: 10% ;
   border-bottom: 4px solid rgba(165,158,186,1);
+  margin-bottom: 55px;
 
 }
 .lab_r {
@@ -337,8 +352,8 @@ position: center;
   color: rgba(255,255,255,1);
   position: relative;
   top: 16px;
-  left: 24px;
-  font-family: Circular Std;
+  left: 40px;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: Medium;
   font-size: 24px;
   padding-top: 4% ;
@@ -410,6 +425,26 @@ input[type="text"]:-webkit-autofill {
   border-radius: 10px; /* Colore del testo quando auto-compilato */
 }
 
+input[type="password"] {
+  background-color: rgba(57,57,83,1);
+  color : black /* Il colore di sfondo desiderato per l'input */
+}
+
+input[type="password"]::placeholder {
+  color: grey; /* Il colore desiderato per il testo di esempio nell'input */
+}
+
+input[type="password"]:focus {
+  background-color: rgba(57,57,83,1); /* Colore di sfondo desiderato quando l'input è selezionato */
+  outline: 1px rgba(57,57,83,1);
+}
+
+input[type="password"]:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px rgba(57,57,83,1) inset !important; /* Colore di sfondo quando auto-compilato */
+  -webkit-text-fill-color: white !important;
+  border-radius: 10px; /* Colore del testo quando auto-compilato */
+}
+
 .under_label{
   display: flex; /* Imposta il layout flessibile sul div */
   flex-direction: column; /* Allinea gli elementi verticalmente */
@@ -420,7 +455,10 @@ input[type="text"]:-webkit-autofill {
   width: 500px; /* Imposta l'altezza desiderata per la casella di input */
   padding-left: 23px;
 }
-
+.under_label input[type="password"] {
+  width: 500px; /* Imposta l'altezza desiderata per la casella di input */
+  padding-left: 23px;
+}
 .under_label label{
   font-family:Arial, Helvetica, sans-serif
 }
@@ -451,4 +489,119 @@ input[type="text"]:-webkit-autofill {
 .login-button:hover {
   background-color: white; /* Cambia il colore di sfondo al passaggio del cursore */
   color: black;
+}
+
+.titolo{
+  padding-top: 10 px;
+}
+
+.report_cont {
+  width: 650px;
+  height: 380px;
+  border-radius: 10px;
+  background-color: rgba(57,57,83,1);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding-top: 35px;
+  padding-right: 24px;
+  padding-bottom: 0px;
+  margin: 1px;
+  opacity: 1;
+  position: relative;
+  top: 20px;
+  left: 0px;
+  overflow: hidden;
+  margin: auto;
+  scrollbar-color: transparent;
+  
+}
+
+.class_test{
+  padding-top: 40px;
+}
+
+.robot_test{
+  padding-top: 5px;
+}
+
+.divisore{
+  padding-top: 10px;
+}
+
+.div_blanco{
+  border-bottom: 4px solid rgba(165,158,186,1);
+}
+
+.custom-p1{
+
+  margin-left: 150px;
+  color: #6966ff;
+}
+
+.custom-p2{
+  margin-left: 127px;
+  color: #6966ff;
+}
+
+.div_submit{
+  text-align: center;
+  padding-right: 62px;
+}
+
+.div_back{
+  text-align: center;
+}
+
+.back-button {
+  background-color: rgba(57,57,83,1);
+  color: #fff;
+  border: rgba(57,57,83,1);
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.back-button:focus {
+  outline:none; /* Rimuove il colore di sfondo dei bordi quando il tasto è attivo (focus) */
+}
+.back-button:hover {
+  background-color: white; /* Cambia il colore di sfondo al passaggio del cursore */
+  color: black;
+}
+
+.submit-button {
+  background-color: rgba(57,57,83,1);
+  color: #fff;
+  border: rgba(57,57,83,1);
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.submit-button:focus {
+  outline:none; /* Rimuove il colore di sfondo dei bordi quando il tasto è attivo (focus) */
+}
+.submit-button:hover {
+  background-color: white; /* Cambia il colore di sfondo al passaggio del cursore */
+  color: black;
+}
+
+.div_buttons{
+  display: inline-block;
+}
+
+.div_back button:first-child {
+  margin-right: 450px;
+}
+
+.image-report {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; /* Aggiungi un margine superiore per separare l'immagine dalla scritta */
 }
