@@ -135,14 +135,15 @@ public class GuiController {
 
     @PostMapping("/save-data")
     public ResponseEntity<String> saveGame() {
-        g.setUsername(p1.getUsername());
+        GameDataWriter gameDataWriter = new GameDataWriter();
+        g.setGameId(gameDataWriter.getGameId());
         g.setUsername(p1.getUsername());
         g.setPlayerClass(valueclass);
         g.setRobot(valuerobot);
 
         System.out.println(g.getUsername() + " " + g.getGameId());
 
-        GameDataWriter gameDataWriter = new GameDataWriter();
+
         gameDataWriter.saveGame(g);
 
         return ResponseEntity.ok("Oggetto creato con successo");
