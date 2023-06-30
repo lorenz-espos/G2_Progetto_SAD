@@ -1,19 +1,18 @@
 package com.g2.Model;
 
 public class Game {
-    private static int counter = 0;
     private String username;
     private long gameId;
     private String playerClass;
     private String robot;
 
     public Game() {
-        this.gameId = generateGameId();
+        this.gameId = 0;
     }
 
     public Game(String username, long gameId, String playerClass, String robot) {
         this.username = username;
-        this.gameId = generateGameId();
+        this.gameId = gameId;
         this.playerClass = playerClass;
         this.robot = robot;
     }
@@ -31,7 +30,8 @@ public class Game {
     }
 
     public void setGameId(long gameId) {
-        this.gameId = gameId;
+        //incremento l'id del gioco per ogni partita poichè in gameID mi viene restituito come l'ultimo id del file
+        this.gameId = ++gameId;
     }
 
     public String getPlayerClass() {
@@ -48,10 +48,6 @@ public class Game {
 
     public void setRobot(String robot) {
         this.robot = robot;
-    }
-
-    private synchronized int generateGameId() {
-        return ++counter;
     }
 
 }
