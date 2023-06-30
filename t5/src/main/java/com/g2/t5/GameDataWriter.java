@@ -2,24 +2,25 @@ package com.g2.t5;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
-import org.apache.commons.csv.CSVRecord;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.g2.Model.Game;
-import com.g2.Model.Player;
 
 public class GameDataWriter {
 
-    private static final String CSV_FILE_PATH = "t5\\src\\main\\resources\\FolderTree\\AUTName\\StudentLogin\\GameId\\GameData.csv";
-    private static final String[] CSV_HEADER = { "GameId", "Username", "PlayerClass", "Robot" };
+    private static String CSV_FILE_PATH = "t5\\src\\main\\resources\\FolderTree\\AUTName\\StudentLogin\\GameId\\GameData.csv";
+    //private static final String[] CSV_HEADER = { "GameId", "Username", "PlayerClass", "Robot" };
 
     public void saveGame(Game game) {
         try {
+            // Crea il file CSV se non esiste
+            File file = new File(CSV_FILE_PATH);
+            CSV_FILE_PATH = file.getAbsolutePath();
+
             // Crea il Writer per il file CSV
             Writer writer = new FileWriter(CSV_FILE_PATH, true);
 
