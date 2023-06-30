@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.g2.Model.Game;
 import com.g2.Model.Player;
 
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,12 @@ import java.util.Map;
 
 @Controller
 public class GuiController {
+
+    Player p1 = Player.getInstance();
+    Game g = new Game();
+
+    String valueclass = "NULL";
+    String valuerobot = "NULL";
     private Integer myClass = null;
     private Integer myRobot = null;
     private Map<Integer, String> hashMap = new HashMap<>();
@@ -95,10 +102,10 @@ public class GuiController {
 
     @GetMapping("/report")
     public String reportPage(Model model) {
-        String valueclass = "NULL";
-        String valuerobot = "NULL";
+
         valueclass = hashMap.get(myClass);
         valuerobot = hashMap2.get(myRobot);
+
         System.out.println("IL VALORE DEL ROBOT " + valuerobot + " " + myRobot);
         System.out.println("Il VALORE DELLA CLASSE " + valueclass + " " + myClass);
         model.addAttribute("classe", valueclass);
@@ -118,9 +125,28 @@ public class GuiController {
         System.out.println("username : " + username);
         System.out.println("password : " + password);
 
+        p1.setUsername(username);
+        p1.setPassword(password);
+
         // Salva i valori in una variabile o esegui altre operazioni necessarie
 
         return ResponseEntity.ok("Dati ricevuti con successo");
+
+    }
+
+    @PostMapping("/save-data")
+    public ResponseEntity<String> saveGame() {
+        g.setUsername(p1.getUsername());
+        g.setUsername(p1.getUsername());
+        g.setPlayerClass(valueclass);
+        g.setRobot(valuerobot);
+
+        System.out.println(g.getUsername() + " " + g.getGameId());
+
+        GameDataWriter gameDataWriter = new GameDataWriter();
+        gameDataWriter.saveGame(g);
+
+        return ResponseEntity.ok("Oggetto creato con successo");
 
     }
 

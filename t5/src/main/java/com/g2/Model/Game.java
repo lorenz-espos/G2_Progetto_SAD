@@ -7,6 +7,10 @@ public class Game {
     private String playerClass;
     private String robot;
 
+    public Game() {
+        this.gameId = generateGameId();
+    }
+
     public Game(String username, long gameId, String playerClass, String robot) {
         this.username = username;
         this.gameId = generateGameId();

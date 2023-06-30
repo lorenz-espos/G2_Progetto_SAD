@@ -116,6 +116,11 @@ else{
 }
 
 function redirectToPageeditor() {
+
+  $.ajax({
+    url:'/save-data',
+    type:'POST'
+  })
   window.location.href = "/editor";
 }
 
