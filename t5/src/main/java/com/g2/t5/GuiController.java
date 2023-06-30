@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.g2.Model.Game;
 import com.g2.Model.Player;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -42,6 +43,7 @@ public class GuiController {
 
         fileController.listFilesInFolder("classpath:FolderTree/AUTName/AUTSourceCode");
         int size = fileController.getClassSize();
+        
 
         for (int i = 0; i < size; i++) {
             String valore = fileController.getClass(i);
