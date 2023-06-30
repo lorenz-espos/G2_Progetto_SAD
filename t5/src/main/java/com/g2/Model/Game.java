@@ -26,7 +26,7 @@ public class Game {
         this.username = username;
     }
 
-    public long getGameId() {
+    public long  getGameId() {
         return gameId;
     }
 
