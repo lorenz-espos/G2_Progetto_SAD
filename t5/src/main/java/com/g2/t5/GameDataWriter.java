@@ -17,7 +17,7 @@ import com.g2.Model.Game;
 
 public class GameDataWriter {
 
-    private static String CSV_FILE_PATH = "t5/src/main/resources/FolderTree/AUTName/StudentLogin/GameId/GameData.csv";
+    private static String CSV_FILE_PATH = "/app/AUTName/StudentLogin/GameId/GameData.csv";
     //private static final String[] CSV_HEADER = { "GameId", "Username", "PlayerClass", "Robot" };
     public long getGameId() {
      long gameId = 0;

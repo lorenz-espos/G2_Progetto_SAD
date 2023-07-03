@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.g2.Model.Game;
 import com.g2.Model.Player;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -41,7 +40,7 @@ public class GuiController {
     @GetMapping("/main")
     public String GUIController(Model model) {
 
-        fileController.listFilesInFolder("classpath:FolderTree/AUTName/AUTSourceCode");
+        fileController.listFilesInFolder("/app/AUTName/AUTSourceCode");
         int size = fileController.getClassSize();
         
 
