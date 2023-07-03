@@ -3,15 +3,30 @@ package com.g2.t5;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.g2.Model.Game;
 import com.g2.Model.Player;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -151,5 +166,28 @@ public class GuiController {
         return ResponseEntity.ok("Oggetto creato con successo");
 
     }
+
+    @PostMapping("/download")
+    public ResponseEntity<Resource> downloadFile(@RequestParam("elementId") Integer elementId) {
+        // Effettua la logica necessaria per ottenere il nome del file
+        // a partire dall'elementId ricevuto, ad esempio, recuperandolo dal database
+        System.out.println("elementId : " + elementId);
+        String filename = hashMap.get(elementId);
+        System.out.println("filename : " + filename );
+        String basePath = "t5/src/main/resources/FolderTree/AUTName/AUTSourceCode/";
+        String filePath = basePath + filename + ".java";
+        System.out.println("filePath : " + filePath);
+        Resource fileResource = new FileSystemResource(filePath);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename + ".java");
+        headers.add(HttpHeaders.CONTENT_TYPE, "application/octet-stream");
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(fileResource);
+    }
+
+    
 
 }

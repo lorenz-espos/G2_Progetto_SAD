@@ -605,3 +605,12 @@ input[type="password"]:-webkit-autofill {
   align-items: center;
   margin-top: 10px; /* Aggiungi un margine superiore per separare l'immagine dalla scritta */
 }
+
+.div_buttons_main{
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.div_back_main button:first-child {
+  margin-right: 690px;
+}
