@@ -139,7 +139,6 @@ function downloadFile() {
     })
       .then(function(response) {
         if (response.ok) {
-
           return response.blob();
         } else {
           throw new Error('Errore nella risposta del server');

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.g2.Model.Game;
 import com.g2.Model.Player;
 
+import com.g2.Interfaces.t8;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
@@ -67,40 +69,9 @@ public class GuiController {
             hashMap.put(i, valore);
         }
 
-        /*
-         * String[] nome = new String[9];
-         * nome[0] = "Arctic Network";
-         * nome[1] = "N Queen";
-         * nome[2] = "Building Bridge";
-         * nome[3] = "Sultan Problem";
-         * nome[4] = "Rat Attack";
-         * nome[5] = "Sudoku";
-         * nome[6] = "Rubik Cube";
-         * nome[7] = "Knapsack";
-         * nome[8] = "Fibonacci";
-         * 
-         * for (int i = 0; i < 9; i++) {
-         * hashMap.put(i, nome[i]);
-         * }
-         */
-
         model.addAttribute("hashMap", hashMap);
 
-        String[] robot = new String[9];
-
-        robot[0] = "Hulk";
-        robot[1] = "Ironman";
-        robot[2] = "Batman";
-        robot[3] = "Superman";
-        robot[4] = "ARMANDO";
-        robot[5] = "Wolverine";
-        robot[6] = "Deadpool";
-        robot[7] = "Thor";
-        robot[8] = "Captain America";
-
-        for (int i = 0; i < 9; i++) {
-            hashMap2.put(i, robot[i]);
-        }
+        hashMap2 = com.g2.Interfaces.t8.RobotList();
 
         model.addAttribute("hashMap2", hashMap2);
         return "main";
