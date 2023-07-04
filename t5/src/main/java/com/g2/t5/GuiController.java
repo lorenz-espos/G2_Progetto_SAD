@@ -27,6 +27,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,7 +61,6 @@ public class GuiController {
 
         fileController.listFilesInFolder("classpath:FolderTree/AUTName/AUTSourceCode");
         int size = fileController.getClassSize();
-        
 
         for (int i = 0; i < size; i++) {
             String valore = fileController.getClass(i);
@@ -152,14 +154,19 @@ public class GuiController {
 
     @PostMapping("/save-data")
     public ResponseEntity<String> saveGame() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        LocalTime oraCorrente = LocalTime.now();
+        String oraFormattata = oraCorrente.format(formatter);
+
         GameDataWriter gameDataWriter = new GameDataWriter();
         g.setGameId(gameDataWriter.getGameId());
         g.setUsername(p1.getUsername());
         g.setPlayerClass(valueclass);
         g.setRobot(valuerobot);
+        g.setData_creazione(LocalDate.now());
+        g.setOra_creazione(oraFormattata);
 
         System.out.println(g.getUsername() + " " + g.getGameId());
-
 
         gameDataWriter.saveGame(g);
 
@@ -173,7 +180,7 @@ public class GuiController {
         // a partire dall'elementId ricevuto, ad esempio, recuperandolo dal database
         System.out.println("elementId : " + elementId);
         String filename = hashMap.get(elementId);
-        System.out.println("filename : " + filename );
+        System.out.println("filename : " + filename);
         String basePath = "t5/src/main/resources/FolderTree/AUTName/AUTSourceCode/";
         String filePath = basePath + filename + ".java";
         System.out.println("filePath : " + filePath);
@@ -187,7 +194,5 @@ public class GuiController {
                 .headers(headers)
                 .body(fileResource);
     }
-
-    
 
 }

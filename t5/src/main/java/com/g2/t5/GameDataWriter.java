@@ -18,38 +18,41 @@ import com.g2.Model.Game;
 public class GameDataWriter {
 
     private static String CSV_FILE_PATH = "t5/src/main/resources/FolderTree/AUTName/StudentLogin/GameId/GameData.csv";
-    //private static final String[] CSV_HEADER = { "GameId", "Username", "PlayerClass", "Robot" };
+
+    // private static final String[] CSV_HEADER = { "GameId", "Username",
+    // "PlayerClass", "Robot", "Data Creazione", "Ora Creazione" };
     public long getGameId() {
-     long gameId = 0;
+        long gameId = 0;
 
-    try {
-        // Crea il Reader per il file CSV
-        Reader reader = new FileReader(CSV_FILE_PATH);
+        try {
+            // Crea il Reader per il file CSV
+            Reader reader = new FileReader(CSV_FILE_PATH);
 
-        // Crea il CSVParser con il Reader e il formato CSV
-        CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT);
+            // Crea il CSVParser con il Reader e il formato CSV
+            CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT);
 
-        // Ottieni tutte le righe del file CSV
-        List<CSVRecord> records = csvParser.getRecords();
+            // Ottieni tutte le righe del file CSV
+            List<CSVRecord> records = csvParser.getRecords();
 
-        // Verifica se ci sono righe nel file CSV
-        if (!records.isEmpty()) {
-            // Prendi l'ultima riga del file CSV
-            CSVRecord lastRecord = records.get(records.size() - 1);
+            // Verifica se ci sono righe nel file CSV
+            if (!records.isEmpty()) {
+                // Prendi l'ultima riga del file CSV
+                CSVRecord lastRecord = records.get(records.size() - 1);
 
-            // Ottieni l'ID dalla prima colonna della riga
-            gameId = Long.parseLong(lastRecord.get(0));
+                // Ottieni l'ID dalla prima colonna della riga
+                gameId = Long.parseLong(lastRecord.get(0));
+            }
+
+            // Chiudi il CSVParser e il Reader
+            csvParser.close();
+            reader.close();
+        } catch (IOException e) {
+            System.err.println("Errore durante la lettura del file CSV: " + e.getMessage());
         }
 
-        // Chiudi il CSVParser e il Reader
-        csvParser.close();
-        reader.close();
-    } catch (IOException e) {
-        System.err.println("Errore durante la lettura del file CSV: " + e.getMessage());
+        return gameId;
     }
 
-    return gameId;
-}
     public void saveGame(Game game) {
         try {
             // Crea il file CSV se non esiste
@@ -63,7 +66,7 @@ public class GameDataWriter {
             CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT);
 
             // Scrivi i dati dell'oggetto Game come tupla CSV nel file
-            csvPrinter.printRecord(game.getGameId(), game.getUsername(), game.getPlayerClass(), game.getRobot());
+            csvPrinter.printRecord(game.getGameId(), game.getUsername(), game.getPlayerClass(), game.getRobot(), game.getData_creazione(), game.getOra_creazione());
 
             // Chiudi il CSVPrinter e il Writer
             csvPrinter.flush();
@@ -76,3 +79,5 @@ public class GameDataWriter {
         }
     }
 }
+
+    
