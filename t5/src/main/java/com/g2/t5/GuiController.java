@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.g2.Model.Game;
 import com.g2.Model.Player;
 
+import jakarta.servlet.http.HttpSession;
 
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.ResponseEntity;
@@ -107,9 +107,7 @@ public class GuiController {
 
         p1.setUsername(username);
         p1.setPassword(password);
-
         // Salva i valori in una variabile o esegui altre operazioni necessarie
-
         return ResponseEntity.ok("Dati ricevuti con successo");
 
     }
