@@ -5,17 +5,17 @@
     <link rel="stylesheet" th:href="@{./codemirror/lib/codemirror.css}"/>
     <link rel="stylesheet" th:href="@{./codemirror/theme/lucario.css}"/>
     <link rel="stylesheet" th:href="@{./codemirror/addon/fold/foldgutter.css}"/>
-    <script th:src="@{/codemirror/lib/codemirror.js}"></script>
-    <script th:src="@{/codemirror/mode/clike/clike.js}"></script>
-    <script th:src="@{/codemirror/addon/fold/foldcode.js}"></script>
-    <script th:src="@{/codemirror/addon/fold/foldgutter.js}"></script>
-    <script th:src="@{/codemirror/addon/fold/brace-fold.js}"></script>
-    <script th:src="@{/codemirror/addon/fold/xml-fold.js}"></script>
-    <script th:src="@{/codemirror/addon/edit/matchbrackets.js}"></script>
-    <script th:src="@{/codemirror/addon/edit/closebrackets.js}"></script>
-    <script th:src="@{/codemirror/addon/edit/trailingspace.js}"></script>
-    <script th:src="@{/codemirror/addon/search/searchcursor.js}"></script>
-    <script th:src="@{/codemirror/addon/search/search.js}"></script>
+    <script th:src="@{/codemirror/lib/codemirror.js}"th:inline="javascript"></script>
+    <script th:src="@{/codemirror/mode/clike/clike.js}"th:inline="javascript"></script>
+    <script th:src="@{/codemirror/addon/fold/foldcode.js}"th:inline="javascript"></script>
+    <script th:src="@{/codemirror/addon/fold/foldgutter.js}"th:inline="javascript"></script>
+    <script th:src="@{/codemirror/addon/fold/brace-fold.js}"th:inline="javascript"></script>
+    <script th:src="@{/codemirror/addon/fold/xml-fold.js}"th:inline="javascript"></script>
+    <script th:src="@{/codemirror/addon/edit/matchbrackets.js}"th:inline="javascript"></script>
+    <script th:src="@{/codemirror/addon/edit/closebrackets.js}"th:inline="javascript"></script>
+    <script th:src="@{/codemirror/addon/edit/trailingspace.js}"th:inline="javascript"></script>
+    <script th:src="@{/codemirror/addon/search/searchcursor.js}"th:inline="javascript"></script>
+    <script th:src="@{/codemirror/addon/search/search.js}"th:inline="javascript"></script>
     <script th:src="@{/jquery/jquery-3.7.0.com.js}"  th:inline="javascript">
     </script>
     
@@ -24,7 +24,8 @@
         box-sizing: border-box;
       }
       .bigcontainer{ /*Container pagina*/
-        background-color: #2b3e5088;
+        background-color: #1c1c28;
+
         min-height: 100vh;
       }
       .container::after{ /*Container orizzontale, ROW*/
@@ -44,7 +45,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #2b3e50;
+        background-color: #1c1c28;
         padding: 5px;
         text-align: center;
         color: white;
@@ -69,7 +70,7 @@
       } 
       .top-bar {
         overflow: hidden;
-        background-color:#2b3e5088;
+        background-color: #2b3e5088;
         padding: 10px;
         width: 100%;
       }
@@ -101,7 +102,7 @@
         opacity:0.5;
       }
       .user-button{
-        background-image: url(./Icone/gameInfo.png);
+        background-image: url(/*[[@{/Icone/gameInfo.png}]]*/);
       }
       .theme-button{
         background-image: url(./Icone/theme.png);
@@ -120,7 +121,7 @@
         margin-left: 3%;
       }
       .save-button{
-        background-image: url(./Icone/floppy-disk.png);
+        background-image: url(/*[[@{/Icone/floppy-disk.png}]]*/);
         margin-left: 3%;
       }
       .saveAs-button{
@@ -184,7 +185,9 @@
         cursor: pointer;
       }
       .autocomplete-items div:hover {
-        background-color: #000000;
+        /*background-color: #000000;*/
+        background-color: #1c1c28;
+
       }
       .highlight {
         background-color: rgba(255, 255, 0, 0.537)
@@ -209,7 +212,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(43, 62, 80, 0.5);
+        background-color: #1c1c28;
+        /*background-color: rgba(43, 62, 80, 0.5);*/
         z-index: 9999;
         text-align: center;
       }
@@ -220,7 +224,10 @@
         left: 0;
         width: 100%;
         height: 100%;
+        background-color: #1c1c28;
+        /*
         background-color: rgba(43, 62, 80, 0.5);
+       */
         z-index: 9999;
         text-align: center;
       }
@@ -535,7 +542,7 @@ public class NomeClasseTest {
           dataType: "text",
           success: function(response) {
             // Ricezione avvenuta con successo
-            console.log(response);
+            console.log(response);     
             // Associa le informazioni ricevute ai campi della finestra modale
             var idUtenteElement = document.createElement("p");
             idUtenteElement.textContent = "UserID: " + response.idUtente;
@@ -558,7 +565,7 @@ public class NomeClasseTest {
             modal2Content.appendChild(difficoltaElement);
             // Aggiorna il contenuto dell'editor laterale con il contenuto ricevuto
             sidebarEditor.setValue(response);
-          },
+          },    
           error: function() {
             // Gestione dell'errore
             console.log("Errore durante la ricezione del file ClassUnderTest.java");
@@ -814,41 +821,7 @@ public class NomeClasseTest {
         var report=jacoco.run();
         console.log(report);
       }
-      function openInfoModal() {
-        var infoModal=document.getElementById("infoModal");
-        infoModal.style.display="block";
-      }
-      function closeInfoModal(){
-        var infoModal=document.getElementById("infoModal");
-        infoModal.style.display="none";
-      }
-      // Aggiungi i campi e il titolo iniziali alla finestra modale
-      var modal2Content=document.querySelector("#infoModal .modal2-content");
-      // Aggiungi il titolo
-      var titleElement = document.createElement("h2");
-      titleElement.classList.add("modal2-title");
-      titleElement.textContent = "GAME INFO";
-      modal2Content.insertBefore(titleElement, modal2Content.firstChild);
-      // Aggiungi i campi
-      var idUtenteElement = document.createElement("p");
-      idUtenteElement.textContent = "UserID: 'Nome Utente'";
-      modal2Content.appendChild(idUtenteElement);
-
-      var idPartitaElement = document.createElement("p");
-      idPartitaElement.textContent = "GameID: 'Identificativo Partita'";
-      modal2Content.appendChild(idPartitaElement);
-
-      var idTurnoElement = document.createElement("p");
-      idTurnoElement.textContent = "Turno: '#Turno'";
-      modal2Content.appendChild(idTurnoElement);
-
-      var robotSceltoElement = document.createElement("p");
-      robotSceltoElement.textContent = "Robot: 'Evosuite o Randoop'";
-      modal2Content.appendChild(robotSceltoElement);
-
-      var difficoltaElement = document.createElement("p");
-      difficoltaElement.textContent = "Livello: 'Livello del match'";
-      modal2Content.appendChild(difficoltaElement);
+      
       function openSearchModal() {
         var searchModal = document.getElementById("searchModal");
         searchModal.style.display = "block";
@@ -999,6 +972,53 @@ public class NomeClasseTest {
       }
       var suggestionList = ["ArrayList", "LinkedList","HashMap","HashSet", "String","Integer","Boolean","Double","Float","Character","Byte",  "Short","Long","Array","List","Set","Map","Queue",  "Stack","TreeSet","TreeMap","PriorityQueue", "Comparator", "Comparable", "Iterator", "Enumeration", "AbstractList", "AbstractSet", "AbstractMap", "AbstractQueue", "AbstractSequentialList", "LinkedListNode", "LinkedListIterator", "LinkedListSpliterator", "LinkedListDescendingIterator", "LinkedListDescendingSpliterator","ArrayListNode", "ArrayListIterator", "ArrayListSpliterator","ArrayListReverseIterator","ArrayListReverseSpliterator","HashSetNode", "HashSetIterator", "HashSetSpliterator", "HashMapEntry","HashMapNode","HashMapIterator", "HashMapSpliterator", "HashMapKeyIterator", "HashMapKeySpliterator", "HashMapValueIterator", "HashMapValueSpliterator", "HashMapEntryIterator", "HashMapEntrySpliterator", "HashSetDescendingIterator", "HashSetDescendingSpliterator", "TreeSetNode","TreeSetIterator","TreeSetSpliterator", "TreeSetDescendingIterator","TreeSetDescendingSpliterator","TreeMapEntry", "TreeMapNode",  "TreeMapIterator",  "TreeMapSpliterator",  "TreeMapKeyIterator",  "TreeMapKeySpliterator", "TreeMapValueIterator","TreeMapValueSpliterator", "TreeMapEntryIterator","TreeMapEntrySpliterator",  "PriorityQueueNode", "PriorityQueueIterator","PriorityQueueSpliterator","AbstractCollection", "AbstractQueueIterator","AbstractQueueSpliterator", "AbstractQueueDescendingIterator", "AbstractQueueDescendingSpliterator", "AbstractDeque","LinkedListDeque","LinkedListDequeNode", "LinkedListDequeIterator", "LinkedListDequeSpliterator", "LinkedListDequeDescendingIterator", "LinkedListDequeDescendingSpliterator", "ArrayDeque", "ArrayDequeNode", "ArrayDequeIterator", "ArrayDequeSpliterator", "ArrayDequeDescendingIterator", "ArrayDequeDescendingSpliterator", "StackNode", "StackIterator", "StackSpliterator",   "StackDescendingIterator", "StackDescendingSpliterator", "AbstractListIterator", "AbstractListSpliterator","ArrayListListIterator","ArrayListListSpliterator", "LinkedListListIterator", "LinkedListListSpliterator", "AbstractSetIterator", "AbstractSetSpliterator","HashSetSetIterator","HashSetSetSpliterator","TreeSetSetIterator", "TreeSetSetSpliterator", "AbstractMapIterator", "AbstractMapSpliterator", "HashMapMapIterator", "HashMapMapSpliterator", "TreeMapMapIterator", "TreeMapMapSpliterator","AbstractSequentialListIterator", "AbstractSequentialListSpliterator","LinkedListSequentialListIterator","LinkedListSequentialListSpliterator", "ArrayListSequentialListIterator", "ArrayListSequentialListSpliterator",  "LinkedListNodeIterator", "LinkedListNodeSpliterator", "ArrayListNodeIterator", "ArrayListNodeSpliterator","HashSetNodeIterator", "HashSetNodeSpliterator","HashMapEntryIterator", "HashMapEntrySpliterator","HashSetDescendingIterator","HashSetDescendingSpliterator","TreeSetNodeIterator","TreeSetNodeSpliterator","TreeMapEntryIterator","TreeMapEntrySpliterator", "PriorityQueueNodeIterator", "PriorityQueueNodeSpliterator","AbstractCollectionIterator","AbstractCollectionSpliterator","AbstractQueueIterator","AbstractQueueSpliterator","AbstractQueueDescendingIterator","AbstractQueueDescendingSpliterator","AbstractDequeIterator","AbstractDequeSpliterator","LinkedListDequeIterator","LinkedListDequeSpliterator","LinkedListDequeDescendingIterator","LinkedListDequeDescendingSpliterator","ArrayDequeIterator","ArrayDequeSpliterator","ArrayDequeDescendingIterator","ArrayDequeDescendingSpliterator","StackNodeIterator","StackNodeSpliterator","StackDescendingIterator","StackDescendingSpliterator", "AbstractListIterator", "AbstractListSpliterator","ArrayListListIterator","ArrayListListSpliterator","LinkedListListIterator", "LinkedListListSpliterator","AbstractSetIterator","AbstractSetSpliterator","HashSetSetIterator","HashSetSetSpliterator","TreeSetSetIterator","TreeSetSetSpliterator","AbstractMapIterator","AbstractMapSpliterator","HashMapMapIterator","HashMapMapSpliterator","TreeMapMapIterator","TreeMapMapSpliterator", "AbstractSequentialListIterator","AbstractSequentialListSpliterator","LinkedListSequentialListIterator","LinkedListSequentialListSpliterator","ArrayListSequentialListIterator","ArrayListSequentialListSpliterator","LinkedListNodeIterator","LinkedListNodeSpliterator","ArrayListNodeIterator","ArrayListNodeSpliterator","HashSetNodeIterator","HashSetNodeSpliterator","HashMapEntryIterator","HashMapEntrySpliterator","HashSetDescendingIterator","HashSetDescendingSpliterator","TreeSetNodeIterator","TreeSetNodeSpliterator","TreeMapEntryIterator","TreeMapEntrySpliterator","PriorityQueueNodeIterator" ];
       autocomplete(editor, { startTag: ".", suggestionList: suggestionList });
+      function openInfoModal() {
+        var infoModal=document.getElementById("infoModal");
+        infoModal.style.display="block";
+      }
+      function closeInfoModal(){
+        var infoModal=document.getElementById("infoModal");
+        infoModal.style.display="none";
+      }
+      // Aggiungi i campi e il titolo iniziali alla finestra modale
+      var modal2Content=document.querySelector("#infoModal .modal2-content");
+      // Aggiungi il titolo
+      var titleElement = document.createElement("h2");
+      titleElement.classList.add("modal2-title");
+      titleElement.textContent = "GAME INFO";
+      modal2Content.insertBefore(titleElement, modal2Content.firstChild);
+      // Aggiungi i campi
+      var idUtenteElement = document.createElement("p");
+      var usernamej = "[[${username}]]";
+      idUtenteElement.textContent = "UserID: "+usernamej;
+      modal2Content.appendChild(idUtenteElement);
+
+      var idPartitaElement = document.createElement("p");
+      var gameIDj = "[[${gameId}]]";
+      idPartitaElement.textContent = "GameID: "+gameIDj;
+      modal2Content.appendChild(idPartitaElement);
+
+      var idTurnoElement = document.createElement("p");
+      idTurnoElement.textContent = "Turno: 1";
+      modal2Content.appendChild(idTurnoElement);
+
+      var robotSceltoElement = document.createElement("p");
+      var robotj="[[${robot}]]";
+      robotSceltoElement.textContent = "Robot:" +robotj;
+      modal2Content.appendChild(robotSceltoElement);
+
+      var difficoltaElement = document.createElement("p");
+      difficoltaElement.textContent = "Livello: 1";
+      modal2Content.appendChild(difficoltaElement);
     </script>
+
+    <script th:inline="javascript">
+      //codice custom per l'integrabilità con thymeleaf
+        var robot = "[[${robot}]]";
+        var username = "[[${username}]]";
+        var gameIDJ = "[[${gameId}]]";
+  
+
+      </script>
   </body>
 </html>
