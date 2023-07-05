@@ -160,6 +160,17 @@ function downloadFile() {
   }
 }
 
+function redirectToLogin() {
+  window.location.href = "/login";
+}
+
+function premiBottone(event) {
+  // Verifica se il tasto premuto è "Invio" (codice 13)
+  if (event.keyCode === 13) {
+   console.log("Premuto invio");
+    redirectToPagemainlogin(); // Esegui la tua funzione personalizzata
+  }
+}
 
 
 

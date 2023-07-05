@@ -166,4 +166,9 @@ public class GuiController {
                 .body(fileResource);
     }
 
+    @GetMapping("/change_password")
+    public String showChangePasswordPage() {
+        return "change_password";
+    }
 }
+
