@@ -159,7 +159,7 @@ public class GuiController {
 
     @GetMapping("/change_password")
     public String showChangePasswordPage() {
-        return "change_password";
-    }
+    return "change_password";
+}
 }
 
