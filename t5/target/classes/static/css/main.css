@@ -532,23 +532,23 @@ input[type="password"]:-webkit-autofill {
 
 .report_cont {
   width: 650px;
-  height: 380px;
-  border-radius: 10px;
-  background-color: rgba(57,57,83,1);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  padding-top: 35px;
-  padding-right: 24px;
-  padding-bottom: 0px;
-  margin: 1px;
-  opacity: 1;
-  position: relative;
-  top: 20px;
-  left: 0px;
-  overflow: hidden;
-  margin: auto;
-  scrollbar-color: transparent;
+    height: 380px;
+    border-radius: 10px;
+    background-color: rgba(57,57,83,1);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding-top: 35px;
+    padding-right: 24px;
+    padding-bottom: 0px;
+    margin: 1px;
+    opacity: 1;
+    position: relative;
+    left: 0px;
+    overflow: hidden;
+    margin: auto;
+    scrollbar-color: transparent;
+    bottom: 50px;
   
 }
 
@@ -628,6 +628,8 @@ input[type="password"]:-webkit-autofill {
 
 .div_buttons{
   display: inline-block;
+  position: relative;
+  bottom: 30px;
 }
 
 .div_back button:first-child {
@@ -672,6 +674,12 @@ input[type="password"]:-webkit-autofill {
 
 .user_position_report{
   position: relative;
-    right: 517px;
-    bottom: 533px;
+    right: 245px;
+    bottom: 18px;
+}
+
+.user_position_report p{
+  overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
 }
