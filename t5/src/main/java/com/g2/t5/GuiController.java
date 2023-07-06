@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.g2.Model.Game;
 import com.g2.Model.Player;
 
-import jakarta.servlet.http.HttpSession;
-
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +24,7 @@ public class GuiController {
 
     Player p1 = Player.getInstance();
     Game g = new Game();
+    long globalID; 
 
     String valueclass = "NULL";
     String valuerobot = "NULL";
@@ -88,15 +87,6 @@ public class GuiController {
         return "report";
     }
 
-    @GetMapping("/editor")
-    public String editorPage(Model model) {
-           model.addAttribute("username", p1.getUsername());
-            model.addAttribute("robot", valuerobot);
-            model.addAttribute("classe", valueclass);
-            model.addAttribute("gameId", g.getGameId());
-
-        return "editor";
-    }
 
     @PostMapping("/login-variabiles")
     public ResponseEntity<String> receiveLoginData(@RequestParam("var1") String username,
@@ -128,6 +118,8 @@ public class GuiController {
 
         System.out.println(g.getUsername() + " " + g.getGameId());
 
+        globalID = g.getGameId();
+
         gameDataWriter.saveGame(g);
 
         return ResponseEntity.ok("Oggetto creato con successo");
@@ -158,6 +150,20 @@ public class GuiController {
     @GetMapping("/change_password")
     public String showChangePasswordPage() {
     return "change_password";
+    }
+
+
+        @GetMapping("/editor")
+    public String editorPage(Model model) {
+           model.addAttribute("username", p1.getUsername());
+            model.addAttribute("robot", valuerobot);
+            model.addAttribute("classe", valueclass);
+            
+            model.addAttribute("gameIDj",globalID);
+
+        return "editor";
+    }
+
 }
-}
+
 
