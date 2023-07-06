@@ -63,7 +63,7 @@ public class GameDataWriter {
             CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT);
 
             // Scrivi i dati dell'oggetto Game come tupla CSV nel file
-            csvPrinter.printRecord(game.getGameId(), game.getUsername(), game.getPlayerClass(), game.getRobot());
+            csvPrinter.printRecord(game.getGameId(), game.getUsername(), game.getPlayerClass(), game.getRobot(), game.getData_creazione(), game.getOra_creazione());
 
             // Chiudi il CSVPrinter e il Writer
             csvPrinter.flush();

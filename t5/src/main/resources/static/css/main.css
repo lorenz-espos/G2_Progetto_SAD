@@ -8,8 +8,9 @@ body {
   background-color: #1c1c28;
 }
 .container {
+  padding-top: 1%;
   max-width:100vh;
-  height: 100vh;
+  height: 86vh;
  
  position: center;
   overflow: hidden;
@@ -362,8 +363,6 @@ position: center;
   user-select: none;
 
 }
-
-
 .login_cont {
   width: 650px;
   height: 380px;
@@ -385,6 +384,35 @@ position: center;
   margin: auto;
   scrollbar-color: transparent;
   
+}
+
+.login_cont_change_pass {
+  width: 650px;
+  height: 380px;
+  border-radius: 10px;
+  background-color: #1c1c28;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding-top: 35px;
+  padding-left: 80px;
+  padding-right: 24px;
+  padding-bottom: 0px;
+  margin: 1px;
+  opacity: 1;
+  position: relative;
+  top: -3px;
+  left: 0px;
+  overflow: hidden;
+  margin: auto;
+  scrollbar-color: transparent;
+  
+}
+
+.form-row_new {
+  display: flex;
+  position:relative;
+  align-items: center;
 }
 
 .form-row {
@@ -464,8 +492,16 @@ input[type="password"]:-webkit-autofill {
 }
 
 .user_pass{
-  padding-top: 40px;
+  padding-top: 20px;
 }
+.button_dist_change_pass{
+  padding-top: 40px;
+  text-align: center;
+  padding-right: 62px;
+  position: relative;
+  bottom: 40px;
+}
+
 .button_dist{
   padding-top: 100px;
   text-align: center;
@@ -497,23 +533,23 @@ input[type="password"]:-webkit-autofill {
 
 .report_cont {
   width: 650px;
-  height: 380px;
-  border-radius: 10px;
-  background-color: rgba(57,57,83,1);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  padding-top: 35px;
-  padding-right: 24px;
-  padding-bottom: 0px;
-  margin: 1px;
-  opacity: 1;
-  position: relative;
-  top: 20px;
-  left: 0px;
-  overflow: hidden;
-  margin: auto;
-  scrollbar-color: transparent;
+    height: 380px;
+    border-radius: 10px;
+    background-color: rgba(57,57,83,1);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding-top: 35px;
+    padding-right: 24px;
+    padding-bottom: 0px;
+    margin: 1px;
+    opacity: 1;
+    position: relative;
+    left: 0px;
+    overflow: hidden;
+    margin: auto;
+    scrollbar-color: transparent;
+    bottom: 50px;
   
 }
 
@@ -593,6 +629,8 @@ input[type="password"]:-webkit-autofill {
 
 .div_buttons{
   display: inline-block;
+  position: relative;
+  bottom: 30px;
 }
 
 .div_back button:first-child {
@@ -604,4 +642,47 @@ input[type="password"]:-webkit-autofill {
   justify-content: center;
   align-items: center;
   margin-top: 10px; /* Aggiungi un margine superiore per separare l'immagine dalla scritta */
+}
+
+.div_buttons_main{
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.div_back_main button:first-child {
+  margin-right: 690px;
+}
+
+.forgot_pass{
+  margin-left: 10px; 
+  position: relative;  /*per spostare l'elemento senza influenzare gli altri relative + spostamento*/
+  top: 5px;
+}
+
+.user_pass_new{
+  padding-top: 40px;
+}
+
+.user_pass_old{
+  padding-top: 40px;
+}
+
+.user_position_main{
+padding-top: 1%;
+padding-left: 8%;
+
+}
+
+.user_position_report{
+/*  position: relative;
+    right: 245px;
+    bottom: 18px;*/
+    padding-top: 1%;
+    padding-left: 8%;
+}
+
+.user_position_report p{
+  overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
 }

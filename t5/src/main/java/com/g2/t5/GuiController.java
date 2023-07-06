@@ -4,13 +4,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.g2.Model.Game;
 import com.g2.Model.Player;
 
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +24,7 @@ public class GuiController {
 
     Player p1 = Player.getInstance();
     Game g = new Game();
+    long globalID;
 
     String valueclass = "NULL";
     String valuerobot = "NULL";
@@ -42,47 +48,15 @@ public class GuiController {
 
         fileController.listFilesInFolder("/app/AUTName/AUTSourceCode");
         int size = fileController.getClassSize();
-        
 
         for (int i = 0; i < size; i++) {
             String valore = fileController.getClass(i);
             hashMap.put(i, valore);
         }
 
-        /*
-         * String[] nome = new String[9];
-         * nome[0] = "Arctic Network";
-         * nome[1] = "N Queen";
-         * nome[2] = "Building Bridge";
-         * nome[3] = "Sultan Problem";
-         * nome[4] = "Rat Attack";
-         * nome[5] = "Sudoku";
-         * nome[6] = "Rubik Cube";
-         * nome[7] = "Knapsack";
-         * nome[8] = "Fibonacci";
-         * 
-         * for (int i = 0; i < 9; i++) {
-         * hashMap.put(i, nome[i]);
-         * }
-         */
-
         model.addAttribute("hashMap", hashMap);
 
-        String[] robot = new String[9];
-
-        robot[0] = "Hulk";
-        robot[1] = "Ironman";
-        robot[2] = "Batman";
-        robot[3] = "Superman";
-        robot[4] = "ARMANDO";
-        robot[5] = "Wolverine";
-        robot[6] = "Deadpool";
-        robot[7] = "Thor";
-        robot[8] = "Captain America";
-
-        for (int i = 0; i < 9; i++) {
-            hashMap2.put(i, robot[i]);
-        }
+        hashMap2 = com.g2.Interfaces.t8.RobotList();
 
         model.addAttribute("hashMap2", hashMap2);
         return "main";
@@ -113,11 +87,6 @@ public class GuiController {
         return "report";
     }
 
-    @GetMapping("/editor")
-    public String editorPage() {
-        return "editor";
-    }
-
     @PostMapping("/login-variabiles")
     public ResponseEntity<String> receiveLoginData(@RequestParam("var1") String username,
             @RequestParam("var2") String password) {
@@ -133,22 +102,65 @@ public class GuiController {
         return ResponseEntity.ok("Dati ricevuti con successo");
 
     }
-
     @PostMapping("/save-data")
     public ResponseEntity<String> saveGame() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        LocalTime oraCorrente = LocalTime.now();
+        String oraFormattata = oraCorrente.format(formatter);
+
         GameDataWriter gameDataWriter = new GameDataWriter();
         g.setGameId(gameDataWriter.getGameId());
         g.setUsername(p1.getUsername());
         g.setPlayerClass(valueclass);
         g.setRobot(valuerobot);
+        g.setData_creazione(LocalDate.now());
+        g.setOra_creazione(oraFormattata);
 
         System.out.println(g.getUsername() + " " + g.getGameId());
 
+        globalID = g.getGameId();
 
         gameDataWriter.saveGame(g);
 
         return ResponseEntity.ok("Oggetto creato con successo");
 
+    }
+
+    @PostMapping("/download")
+    public ResponseEntity<Resource> downloadFile(@RequestParam("elementId") Integer elementId) {
+        // Effettua la logica necessaria per ottenere il nome del file
+        // a partire dall'elementId ricevuto, ad esempio, recuperandolo dal database
+        System.out.println("elementId : " + elementId);
+        String filename = hashMap.get(elementId);
+        System.out.println("filename : " + filename);
+        String basePath = "app/AUTName/AUTSourceCode/";
+        String filePath = basePath + filename + ".java";
+        System.out.println("filePath : " + filePath);
+        Resource fileResource = new FileSystemResource(filePath);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename + ".java");
+        headers.add(HttpHeaders.CONTENT_TYPE, "application/octet-stream");
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(fileResource);
+    }
+
+    @GetMapping("/change_password")
+    public String showChangePasswordPage() {
+        return "change_password";
+    }
+
+    @GetMapping("/editor")
+    public String editorPage(Model model) {
+        model.addAttribute("username", p1.getUsername());
+        model.addAttribute("robot", valuerobot);
+        model.addAttribute("classe", valueclass);
+
+        model.addAttribute("gameIDj", globalID);
+
+        return "editor";
     }
 
 }
