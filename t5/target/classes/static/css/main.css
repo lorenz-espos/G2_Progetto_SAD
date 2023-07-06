@@ -8,8 +8,9 @@ body {
   background-color: #1c1c28;
 }
 .container {
+  padding-top: 1%;
   max-width:100vh;
-  height: 100vh;
+  height: 86vh;
  
  position: center;
   overflow: hidden;
@@ -667,15 +668,17 @@ input[type="password"]:-webkit-autofill {
 }
 
 .user_position_main{
-  position: relative;
-    right: 150px;
-    bottom: 570px;
+padding-top: 1%;
+padding-left: 8%;
+
 }
 
 .user_position_report{
-  position: relative;
+/*  position: relative;
     right: 245px;
-    bottom: 18px;
+    bottom: 18px;*/
+    padding-top: 1%;
+    padding-left: 8%;
 }
 
 .user_position_report p{
