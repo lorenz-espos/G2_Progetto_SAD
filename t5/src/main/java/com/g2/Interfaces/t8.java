@@ -3,7 +3,7 @@ package com.g2.Interfaces;
 import java.util.HashMap;
 import java.util.Map;
 
-public class t8 {
+public class t8 implements t8Interface{
 
     public static Map<Integer, String> RobotList() {
         Map<Integer, String> robot = new HashMap<>();
