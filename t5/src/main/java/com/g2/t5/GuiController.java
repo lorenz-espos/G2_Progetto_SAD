@@ -137,7 +137,7 @@ public class GuiController {
         System.out.println("elementId : " + elementId);
         String filename = hashMap.get(elementId);
         System.out.println("filename : " + filename);
-        String basePath = "app/AUTName/AUTSourceCode/";
+        String basePath = "/app/AUTName/AUTSourceCode/";
         String filePath = basePath + filename + ".java";
         System.out.println("filePath : " + filePath);
         Resource fileResource = new FileSystemResource(filePath);
