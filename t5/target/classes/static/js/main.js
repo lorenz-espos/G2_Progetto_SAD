@@ -109,7 +109,8 @@ function redirectToPagemainlogin() {
       success: function(response) {
           // La richiesta è stata completata con successo
           // Puoi cambiare la pagina qui
-          alert("Login effettuato con successo");
+          
+          //alert("Login effettuato con successo");
           window.location.href = '/main';
       },
       error: function(xhr, status, error) {

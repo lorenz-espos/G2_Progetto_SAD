@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.g2.t5.T5ApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.718 s - in com.g2.t5.T5ApplicationTests
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 15.9 s <<< FAILURE! - in com.g2.t5.T5ApplicationTests
+com.g2.t5.T5ApplicationTests.testLogin  Time elapsed: 8.778 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at com.g2.t5.T5ApplicationTests.testLogin(T5ApplicationTests.java:89)
+
