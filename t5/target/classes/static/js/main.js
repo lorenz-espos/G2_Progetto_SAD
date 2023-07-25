@@ -92,36 +92,28 @@ function redirectToPagemain() {
 
 
 function redirectToPagemainlogin() {
- 
+
   user = document.getElementById("username").value;
   password = document.getElementById("password").value;
- 
-  if(user && password ){
-    
+if(user && password ){
+  alert("Login effettuato con successo");
   
-    $.ajax({
-      url:'/login-variabiles',
-      type: 'POST',
-      data: { 
-        var1: user, 
-        var2: password
-      },
-      success: function(response) {
-          // La richiesta è stata completata con successo
-          // Puoi cambiare la pagina qui
-          alert("Login effettuato con successo");
-          window.location.href = '/main';
-      },
-      error: function(xhr, status, error) {
-          // La richiesta ha generato un errore
-          alert("Nome utente e/o password non validi");
-          console.error(error);
-      }
-  });
-    }
-  else{
-    alert("Inserisci username e password");
-  }
+  $.ajax({
+    url:'/login-variabiles',
+    type: 'POST',
+    data: { 
+      var1: user, 
+      var2: password
+    },
+
+  })
+
+
+  window.location.href = "/main";
+}
+else{
+  alert("Inserisci username e password");
+}
 }
 
 function redirectToPageeditor() {
